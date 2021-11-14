@@ -39,6 +39,7 @@ sudo make install
 
 
 ## ros安装
+...
 
 ## SuiteSparse
 sudo apt-get install libsuitesparse-dev
@@ -50,6 +51,7 @@ sudo apt-get install libsuitesparse-dev
 * DBoW2
 * DLoopDetector
 * OpenGV
+
 
 ## 问题1
 sptam/src/sptam/types_sba_extension.hpp:43:84: error: ‘VertexSBAPointXYZ’ was not declared in this scope; did you mean ‘VertexPointXYZ’?
@@ -122,20 +124,11 @@ sudo rm -rf /usr/local/lib/cmake/DLib/
 
 
 
-误删 /usr/local/lib/cmake 恢复：
 
 
 
-sudo rm -rf /usr/local/lib/cmake
+备注1：
 
-
-
-
-
-
-
-
-备注：
 ```bash
 # opencv3中：
 cvtColor(input, output, CV_BGR2GRAY；
@@ -144,13 +137,29 @@ cvtColor(input, output, COLOR_COLOR_RGB2GRAY);
 ```
 
 
+备注2：
 
-误删除恢复
+误删 /usr/local/lib/cmake 恢复
+
+方法1：
 
 https://blog.csdn.net/qq_36355662/article/details/61919474
 
+方法2
+
+直接，重新安装 `sudo make install` 之前的程序，如果不多的话。
+
+* x  DBoW2
+* x  opengv
+* x  DLoopDetector
+* x  g2o
+* python2.7
+* python 3.8
+* x  opencv 3.2
+* x  ceres
 
 
 REF
+
 https://blog.csdn.net/weixin_43013458/article/details/95369695
 
