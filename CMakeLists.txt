@@ -43,9 +43,10 @@ find_package(catkin REQUIRED COMPONENTS
 
 # 查看opencv的版本
 
-# 识别的是安装于 /usr/local/include/opencv下的opencv 3.2
-find_package(OpenCV 3 REQUIRED)
-message("WENG MARK! ${OpenCV_INCLUDE_DIRS}")
+# 识别的是安装于 /usr/local/include/opencv下的opencv 3.2。
+# 一般自己编译的库，默认安装在 /usr/local/include。
+# find_package(OpenCV 3 REQUIRED)
+# message("WENG MARK! ${OpenCV_INCLUDE_DIRS}")
 
 # 这个里面包含的opencv是neotic默认的 /usr/include/opencv4
 include_directories(${catkin_INCLUDE_DIRS})
