@@ -133,7 +133,7 @@ G2ODriver::Vertex* G2ODriver::AddVertex(
 
 G2ODriver::Vertex* G2ODriver::AddVertex(const MapPoint& mapPoint, const bool marginalize ,const bool isFixed, VertexData* userData)
 {
-  g2o::VertexSBAPointXYZ* v_p = new g2o::VertexSBAPointXYZ();
+  g2o::VertexPointXYZ* v_p = new g2o::VertexPointXYZ();
 
   v_p->setId( next_vertex_id_++ );
   v_p->setMarginalized( marginalize );
@@ -183,7 +183,7 @@ void G2ODriver::AddEdge(int edgeId, Vertex* point, Vertex* keyFrame, const Measu
 
 Eigen::Vector3d G2ODriver::GetPoint( g2o::HyperGraph::Vertex& vertex )
 {
-  g2o::VertexSBAPointXYZ& point_vertex = dynamic_cast<g2o::VertexSBAPointXYZ&>( vertex );
+  g2o::VertexPointXYZ& point_vertex = dynamic_cast<g2o::VertexPointXYZ&>( vertex );
   return point_vertex.estimate();
 }
 

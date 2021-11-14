@@ -40,7 +40,7 @@ using namespace Eigen;
 
 // monocular projection for right camera
 // first two args are the measurement type, second two the connection classes
-class G2O_TYPES_SBA_API EdgeProjectP2MCRight : public  BaseBinaryEdge<2, Vector2d, VertexSBAPointXYZ, VertexCam>
+class G2O_TYPES_SBA_API EdgeProjectP2MCRight : public  BaseBinaryEdge<2, Vector2d, VertexPointXYZ, VertexCam>
 {
   public:
 
@@ -52,7 +52,7 @@ class G2O_TYPES_SBA_API EdgeProjectP2MCRight : public  BaseBinaryEdge<2, Vector2
     void computeError()
     {
       // from <Point> to <Cam>
-      const VertexSBAPointXYZ *point = static_cast<const VertexSBAPointXYZ*>(_vertices[0]);
+      const VertexPointXYZ *point = static_cast<const VertexPointXYZ*>(_vertices[0]);
       const VertexCam *cam = static_cast<const VertexCam*>(_vertices[1]);
 
 

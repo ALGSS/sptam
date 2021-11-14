@@ -45,15 +45,20 @@
   #include <opencv2/core/core.hpp>
 #elif CV_MAJOR_VERSION == 3
   #include <opencv2/core.hpp>
+#elif CV_MAJOR_VERSION == 4
+  // 因为neotic支持的opencv是4.x，而自己为了适配之前旧的ros vslam, 而将这个opencv3.2 安装到系统中的/usr/local/include/opencv下。
+  // 而catkin_INCLUDE_DIRS下的opencv为 /usr/include/opencv4，所以如果不加主版本为4的语句，则会提示缺少opencv，或不识别cv。11.14
+  #include <opencv2/core.hpp>
 #endif
 
 #define INITIAL_POINT_COVARIANCE Eigen::Matrix3d::Identity() * 1e-4
+using namespace cv;
 
 class MapPoint
 {
   public:
 
-    MapPoint(const Eigen::Vector3d& position, const Eigen::Vector3d& normal, const cv::Mat& descriptor, const Eigen::Matrix3d& covariance);
+    MapPoint(const Eigen::Vector3d& position, const Eigen::Vector3d& normal, const Mat& descriptor, const Eigen::Matrix3d& covariance);
 
     MapPoint(const MapPoint& mapPoint);
 

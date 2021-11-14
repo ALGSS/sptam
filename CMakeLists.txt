@@ -40,7 +40,16 @@ find_package(catkin REQUIRED COMPONENTS
   image_transport
   nodelet
 )
+
+# 查看opencv的版本
+
+# 识别的是安装于 /usr/local/include/opencv下的opencv 3.2
+find_package(OpenCV 3 REQUIRED)
+message("WENG MARK! ${OpenCV_INCLUDE_DIRS}")
+
+# 这个里面包含的opencv是neotic默认的 /usr/include/opencv4
 include_directories(${catkin_INCLUDE_DIRS})
+message("WENG MARK! catkin_INCLUDE_DIRS\n\n ${catkin_INCLUDE_DIRS}")
 
 ###################################
 ## catkin specific configuration ##
@@ -52,7 +61,8 @@ include_directories(${catkin_INCLUDE_DIRS})
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-  CATKIN_DEPENDS roscpp std_msgs sensor_msgs geometry_msgs cv_bridge message_filters image_geometry pcl_ros nav_msgs tf2 tf2_geometry_msgs tf2_ros nodelet
+  CATKIN_DEPENDS roscpp std_msgs sensor_msgs geometry_msgs cv_bridge message_filters
+        image_geometry pcl_ros nav_msgs tf2 tf2_geometry_msgs tf2_ros nodelet
 #  DEPENDS system_lib
 )
 

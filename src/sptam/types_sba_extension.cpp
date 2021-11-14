@@ -39,7 +39,7 @@ using namespace std;
 
 // point to camera projection, monocular
 EdgeProjectP2MCRight::EdgeProjectP2MCRight() :
-BaseBinaryEdge<2, Vector2d, VertexSBAPointXYZ, VertexCam>()
+BaseBinaryEdge<2, Vector2d, VertexPointXYZ, VertexCam>()
 {
   information().setIdentity();
 }
@@ -72,7 +72,7 @@ void EdgeProjectP2MCRight::linearizeOplus()
 
   Vector3d pb(cam.baseline,0,0);
 
-  VertexSBAPointXYZ *vp = static_cast<VertexSBAPointXYZ *>(_vertices[0]);
+  VertexPointXYZ *vp = static_cast<VertexPointXYZ *>(_vertices[0]);
   Vector4d pt, trans;
   pt.head<3>() = vp->estimate();
   pt(3) = 1.0;
