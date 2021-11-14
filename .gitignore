@@ -1,3 +1,7 @@
+# projs
+.idea
+build*
+
 # CMake #
 #########
 CMakeCache.txt
